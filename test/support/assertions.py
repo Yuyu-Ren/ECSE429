@@ -7,6 +7,8 @@ def assert_valid_json_schema(data, schema_file):
     """ Checks whether the given data matches the schema """
     return data == _load_json_schema(schema_file)
 
+def get_valid_json_schema(schema_file):
+    return _load_json_schema(schema_file)
 
 def assert_valid_dictionary_schema(data, schema_file):
     return data == _load_dictionary_schema(schema_file)
