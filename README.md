@@ -1,4 +1,4 @@
-# ECSE429
+# ECSE429 Project Part A
 Project A
 ## Installing the Dependency
 1. (Optional) create a virtual environment using virtualenv or python -m venv 
