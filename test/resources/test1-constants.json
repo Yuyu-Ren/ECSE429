@@ -50,6 +50,25 @@
             }
         ]
     },
+    "EXPECTED_GET_PROJECT_WITH_TODO_ID":{
+        "projects": [
+            {
+                "id": "1",
+                "title": "Office Work",
+                "completed": "false",
+                "active": "false",
+                "description": "",
+                "tasks": [
+                    {
+                        "id": "1"
+                    },
+                    {
+                        "id": "2"
+                    }
+                ]
+            }
+        ]
+    },
     "NEW_TODO": {
         "title": "new paperwork",
         "doneStatus": false,
@@ -61,7 +80,7 @@
         "description": "Thankfully this is done"
     },
     "EXPECTED_NEW_TODO": {
-        "id": "4",
+        "id": "3",
         "title": "new paperwork",
         "doneStatus": "false",
         "description": "get to work folks"
@@ -81,5 +100,45 @@
                 "id": "1"
             }
         ]
+    },
+    "NEW_PROJECT":{
+        "title": "new project"
+    },
+    "PROJECT_ID":{
+        "id":"2"
+    },
+    "EXPECTED_UPDATED_TASK_OF":{
+        "projects": [
+            {
+                "id": "1",
+                "title": "Office Work",
+                "completed": "false",
+                "active": "false",
+                "description": "",
+                "tasks": [
+                    {
+                        "id": "1"
+                    },
+                    {
+                        "id": "2"
+                    }
+                ]
+            },
+            {
+                "id": "2",
+                "title": "new project",
+                "completed": "false",
+                "active": "false",
+                "description": "",
+                "tasks": [
+                    {
+                        "id": "1"
+                    }
+                ]
+            }
+        ]
+    },
+    "EXPECTED_DELETED_TASK_OF":{
+        "projects": []
     }
 }
