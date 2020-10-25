@@ -1,7 +1,7 @@
 # ECSE429
 Project A
 ## Installing the Dependency
-1. (Optional) create a virtual environment using virtual env or python -m venv 
+1. (Optional) create a virtual environment using virtualenv or python -m venv 
 2. pip (or pip3) install requirement.txt
 ## Set the Environment Path Variable For the Jar to be Tested  
 ### Windows  
