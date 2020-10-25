@@ -1,3 +1,4 @@
 venv/*
 .idea/*
 *__pycache__*
+runTodoManagerRestAPI-1.5.5.jar
