@@ -1,0 +1,85 @@
+{
+    "EXPECTED_GET_TODO": {
+        "todos": [
+            {
+                "id": "1",
+                "title": "scan paperwork",
+                "doneStatus": "false",
+                "description": "",
+                "categories": [
+                    {
+                        "id": "1"
+                    }
+                ],
+                "tasksof": [
+                    {
+                        "id": "1"
+                    }
+                ]
+            },
+            {
+                "id": "2",
+                "title": "file paperwork",
+                "doneStatus": "false",
+                "description": "",
+                "tasksof": [
+                    {
+                        "id": "1"
+                    }
+                ]
+            }
+        ]
+    },
+    "EXPECTED_GET_WITH_ID_TODO":{
+        "todos": [
+            {
+                "id": "1",
+                "title": "scan paperwork",
+                "doneStatus": "false",
+                "description": "",
+                "categories": [
+                    {
+                        "id": "1"
+                    }
+                ],
+                "tasksof": [
+                    {
+                        "id": "1"
+                    }
+                ]
+            }
+        ]
+    },
+    "NEW_TODO": {
+        "title": "new paperwork",
+        "doneStatus": false,
+        "description": "get to work folks"
+    },
+    "UPDATE_TODO": {
+        "title": "very old paper work",
+        "doneStatus": true,
+        "description": "Thankfully this is done"
+    },
+    "EXPECTED_NEW_TODO": {
+        "id": "4",
+        "title": "new paperwork",
+        "doneStatus": "false",
+        "description": "get to work folks"
+    },
+    "EXPECTED_UPDATED_TODO": {
+        "id": "1",
+        "title": "very old paper work",
+        "doneStatus": "true",
+        "description": "Thankfully this is done",
+        "categories": [
+            {
+                "id": "1"
+            }
+        ],
+        "tasksof": [
+            {
+                "id": "1"
+            }
+        ]
+    }
+}
