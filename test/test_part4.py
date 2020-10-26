@@ -22,7 +22,7 @@ def test_head_categories_return_payload():
 def test_post_categories_return_code():
     data = TEST4_CONSTANTS['UPDATE_CATEGORIES'];
     r = requests.post(url="http://localhost:4567/categories/1", json=data)
-    assert r.status_code == 201
+    assert r.status_code == 200
 def test_post_categories_return_payload():
     data = TEST4_CONSTANTS['UPDATE_CATEGORIES'];
     r = requests.post(url="http://localhost:4567/categories/1", json=data)
