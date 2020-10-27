@@ -9,4 +9,5 @@ Project A
 ### Mac/Linux
 ``` export JAR_PATH=<jar path>/runTodoManagerRestAPI-1.5.5.jar ```
 ## Running the test
-Run the test by running ```pytest``` within the root directory.
+Run the test by running ```pytest``` within the root directory.'
+You might want to run ``` python -m pytest ``` to run the test in case the first command does not work.
