@@ -1,9 +1,11 @@
 import requests
 import json
-import pytest
+
+from support.assertions import get_xml_file
 
 const_file = open('test/resources/test1-constants.json',)
 TEST1_CONSTANTS = json.load(const_file)
+
 
 # Get for todos
 def test_get_todos_return_code():
@@ -157,3 +159,30 @@ def test_delete_taskof_result_state():
 def test_get_doc_return_code():
     r = requests.get(url="http://localhost:4567/docs")
     assert r.status_code == 200
+
+# POST todos with XML instead of json
+def test_post_todos_return_payload_xml():
+    header = {'Content-Type': 'application/xml'}
+    data = get_xml_file('test_post_todos.xml')
+    r = requests.post(url="http://localhost:4567/todos", data=data, headers=header)
+    assert r.json() == TEST1_CONSTANTS['EXPECTED_NEW_TODO']
+
+# POST update an id of a todos with XML instead of json
+def test_post_todos_with_id_return_payload_xml():
+    header = {'Content-Type': 'application/xml'}
+    data = get_xml_file('test_post_todos_with_id.xml')
+    r = requests.post(url="http://localhost:4567/todos/1", data=data, headers=header)
+    assert r.json() == TEST1_CONSTANTS['EXPECTED_UPDATED_TODO']
+
+# POST update an id of a todos with bad XML entries
+def test_post_todos_with_id_return_payload_bad_xml():
+    header = {'Content-Type': 'application/xml'}
+    data = get_xml_file('test_post_todos_with_id_bad.xml')
+    r = requests.post(url="http://localhost:4567/todos/1", data=data, headers=header)
+    assert r.json() == TEST1_CONSTANTS['EXPECTED_UPDATED_TODO_BAD_XML']
+
+def test_post_todos_with_id_return_payload_wrong_formatting_xml():
+    header = {'Content-Type': 'application/xml'}
+    data = get_xml_file('test_post_todos_with_id_wrong_formatting.xml')
+    r = requests.post(url="http://localhost:4567/todos/1", data=data, headers=header)
+    assert r.json() == TEST1_CONSTANTS['EXPECTED_UPDATED_TODO_WRONG_FORMAT_XML']

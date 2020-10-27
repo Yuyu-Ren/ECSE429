@@ -140,5 +140,15 @@
     },
     "EXPECTED_DELETED_TASK_OF":{
         "projects": []
+    },
+    "EXPECTED_UPDATED_TODO_BAD_XML": {
+      "errorMessages": [
+        "java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1 path $"
+      ]
+    },
+    "EXPECTED_UPDATED_TODO_WRONG_FORMAT_XML": {
+      "errorMessages": [
+        "Mismatched close tag gf at 124 [character 4 line 8]"
+      ]
     }
 }
