@@ -23,7 +23,7 @@
     "NEW_PROJECTS_CATEGORY": {
         "id": 2
     },
-    "EXPECTED_NEW_PROJECTS_CATEGORY":{
+    "EXPECTED_NEW_PROJECTS_CATEGORY": {
         "categories": [
             {
                 "id": "2",
@@ -32,11 +32,11 @@
             }
         ]
     },
-    "NEW_PROJECT":{
+    "NEW_PROJECT": {
         "title": "new project"
     },
-    "PROJECT_ID":{
-        "id":"2"
+    "PROJECT_ID": {
+        "id": "2"
     },
     "EXPECTED_GET_CATEGORY": {
         "categories": [
@@ -59,19 +59,9 @@
     "EXPECTED_NEW_CATEGORY": {
         "categories": [
             {
-            "id": "1",
-            "title": "Office",
-            "description": ""
-            },
-            {
-            "id": "2",
-            "title": "Home",
-            "description": ""
-            },
-            {
-            "id": "3",
-            "title": "new cathegory",
-            "description": "new cathegory"
+                "id": "3",
+                "title": "new cathegory",
+                "description": "new cathegory"
             }
         ]
     },
