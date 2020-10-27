@@ -10,11 +10,13 @@ def test_get_todos_return_code():
     r = requests.get(url="http://localhost:4567/todos")
     assert r.status_code == 200
 
-
 def test_get_todos_return_payload():
     r = requests.get(url="http://localhost:4567/todos")
     assert r.json() == TEST1_CONSTANTS['EXPECTED_GET_TODO']
 
+def test_get_todos_with_query_return_payload():
+    r = requests.get(url="http://localhost:4567/todos?title=scan paperwork")
+    assert r.json() == TEST1_CONSTANTS['EXPECTED_QUERY_TODO']
 
 # Get for todo with id
 def test_get_todos_with_id_return_code():
