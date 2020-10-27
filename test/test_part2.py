@@ -101,7 +101,7 @@ def test_post_projects_id_notfound_return_code():
 def test_post_projects_id_notfound_return_payload():
     body = get_valid_json_schema('projects.id.post.notfound.json')
     r = requests.post(url="http://localhost:4567/projects/55", json=body)
-    assert r.json() == get_valid_json_schema('projects.id.put.notfound.return_payload.json')
+    assert r.json() == get_valid_json_schema('projects.id.post.notfound.return_payload.json')
 
 def test_put_projects_id_existing_return_code():
     body = get_valid_json_schema('projects.id.put.existing.json')
@@ -111,8 +111,6 @@ def test_put_projects_id_existing_return_code():
 def test_put_projects_id_existing_return_payload():
     body = get_valid_json_schema('projects.id.put.existing.json')
     r = requests.put(url="http://localhost:4567/projects/1", json=body)
-    print(r.json())
-    print(get_valid_json_schema('projects.id.put.existing.return_payload.json'))
     assert r.json() == get_valid_json_schema('projects.id.put.existing.return_payload.json')
 
 def test_put_projects_id_notfound_return_code():
@@ -235,3 +233,57 @@ def test_get_shutdown_return_code():
 def test_get_shutdown_notfound_return_code():
     r = requests.get(url="http://localhost:4567/shutdown/dfgiufdshgusfdh")
     assert r.status_code == 404
+
+def test_get_projects_return_code_with_query_match():
+    r = requests.get(url="http://localhost:4567/projects?active=false")
+    assert r.status_code == 200
+
+def test_get_projects_return_code_with_noquery_match():
+    r = requests.get(url="http://localhost:4567/projects?active=true")
+    assert r.status_code == 200
+
+def test_get_projects_return_payload_with_query_match():
+    r = requests.get(url="http://localhost:4567/projects?active=false")
+    print(r.json())
+    print(get_valid_json_schema('projects.get.matchingquery.json'))
+    assert assert_valid_json_schema(r.json(), 'projects.get.matchingquery.json')
+
+def test_get_projects_id_existing_return_code_with_query_match():
+    r = requests.get(url="http://localhost:4567/projects/1?active=false")
+    assert r.status_code == 200
+
+def test_get_projects_id_existing_return_code_with_noquery_match():
+    r = requests.get(url="http://localhost:4567/projects/1?active=true")
+    assert r.status_code == 200
+
+def test_get_projects_id_existing_return_payload_with_query_match():
+    r = requests.get(url="http://localhost:4567/projects/1?active=false")
+    assert r.json() == get_valid_json_schema('projects.id.get.existing.return_payload_querymatch.json')
+
+def test_get_projects_id_existing_return_payload_with_noquery_match():
+    r = requests.get(url="http://localhost:4567/projects/1?active=true")
+    assert r.json() == get_valid_json_schema('projects.id.get.existing.return_payload_noquery.json')
+
+def test_get_projects_id_not_found_return_code_with_query_match():
+    r = requests.get(url="http://localhost:4567/projects/55?active=false")
+    assert r.status_code == 404
+
+def test_get_projects_id_not_found_return_payload_with_noquery_match():
+    r = requests.get(url="http://localhost:4567/projects/55?active=true")
+    assert r.json() == get_valid_json_schema('projects.id.get.notfound.return_payload_noquery.json')
+
+def test_get_projects_id_tasks_return_code_with_query_match():
+    r = requests.get(url="http://localhost:4567/projects/1/tasks?doneStatus=false")
+    assert r.status_code == 200
+
+def test_get_projects_id_tasks_query_match_return_payload_query_match():
+    r = requests.get(url="http://localhost:4567/projects/1/tasks?doneStatus=false")
+    assert r.json() == get_valid_json_schema('projects.id.tasks.get.return_payload_querymatch.json')
+
+def test_get_projects_id_tasks_return_code_with_noquery_match():
+    r = requests.get(url="http://localhost:4567/projects/1/tasks?doneStatus=true")
+    assert r.status_code == 200
+
+def test_get_projects_id_tasks_query_match_return_payload_noquery_match():
+    r = requests.get(url="http://localhost:4567/projects/1/tasks?doneStatus=true")
+    assert r.json() == get_valid_json_schema('projects.id.tasks.get.return_payload_noquery.json')
